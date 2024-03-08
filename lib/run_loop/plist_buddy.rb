@@ -106,7 +106,7 @@ Encountered an error performing operation on plist:
 
       plist = File.join(directory, name)
 
-      create_plist(plist) if !File.exists?(plist)
+      create_plist(plist) if !File.exist?(plist)
 
       plist
     end

@@ -48,7 +48,7 @@ module RunLoop
       ## 2 char + _ + sub localization
       # en_GB.lproj
       lang_dir_name = "#{localized_lang}.lproj".sub('-','_')
-      if File.exists?(File.join(l10n_path, lang_dir_name))
+      if File.exist?(File.join(l10n_path, lang_dir_name))
         return lang_dir_name
       end
 
@@ -56,7 +56,7 @@ module RunLoop
       # vi.lproj
       two_char_country_code = localized_lang.split('-')[0]
       lang_dir_name = "#{two_char_country_code}.lproj"
-      if File.exists?(File.join(l10n_path, lang_dir_name))
+      if File.exist?(File.join(l10n_path, lang_dir_name))
         return lang_dir_name
       end
 
@@ -64,7 +64,7 @@ module RunLoop
       # e.g. Dutch.lproj
       lang_dir_name = "#{LANG_CODE_TO_LANG_NAME_MAP[two_char_country_code]}.lproj"
       if is_full_name?(two_char_country_code) &&
-            File.exists?(File.join(l10n_path, lang_dir_name))
+            File.exist?(File.join(l10n_path, lang_dir_name))
         return lang_dir_name
       end
       nil
