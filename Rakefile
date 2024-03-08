@@ -203,15 +203,15 @@ namespace :device_agent do
   def app_dir
     @app_dir ||= File.join(device_agent_dir, "app", "DeviceAgent-Runner.app")
   end
-  
+
   def app_zip
     @app_zip ||= "#{app_dir}.zip"
   end
-  
+
   def ipa_dir
     @ipa_dir ||= File.join(device_agent_dir, "ipa", "DeviceAgent-Runner.app")
   end
-  
+
   def ipa_zip
     @ipa_zip ||= "#{ipa_dir}.zip"
   end
@@ -222,7 +222,7 @@ namespace :device_agent do
       File.expand_path(dir)
     end
   end
-  
+
   def cbx_paths
     @cbx_paths ||= begin
       [
@@ -327,7 +327,7 @@ namespace :idm do
   def frameworks_dir
     @frameworks_dir ||= File.join(device_agent_dir, "Frameworks")
   end
-  
+
   def frameworks_zip
     @frameworks_zip ||= "#{frameworks_dir}.zip"
   end
@@ -335,11 +335,11 @@ namespace :idm do
   def bin
     @bin ||= File.join(device_agent_dir, "bin", "iOSDeviceManager")
   end
-  
+
   def license
     @license ||= File.join(device_agent_dir, "bin", "iOSDeviceManager.LICENSE")
   end
-  
+
   def cli_json
     @cli_json ||= File.join(device_agent_dir, "bin", "CLI.json")
   end
@@ -410,3 +410,9 @@ namespace :idm do
     checkout(frameworks_zip)
   end
 end
+
+
+
+# refactored raketasks
+require_relative 'lib/run_loop.rb'
+Dir['tasks/**/*.rb'].each { |file| require_relative file }
