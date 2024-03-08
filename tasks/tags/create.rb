@@ -21,7 +21,7 @@ namespace :tags do
     raise "please pull the latest changes to 'develop' branch\n" if !Process.last_status.success? || differences != ''
 
     # check that there are no remote tags with same number
-    current_version = Calabash::Cucumber::VERSION
+    current_version = RunLoop::VERSION
     current_version_name = "v#{current_version}"
     puts "checking that no tag '#{current_version_name}' exists"
     tags_string = `git tag`
