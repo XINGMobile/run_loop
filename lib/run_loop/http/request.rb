@@ -32,6 +32,8 @@ module RunLoop
       # @raise [RequestError] Raises an error if the parameters cannot be
       #   converted to JSON
       def self.data(parameters)
+        return if parameters == {}
+        
         begin
           JSON.generate(parameters)
         rescue *[TypeError, JSON::GeneratorError] => e
@@ -41,4 +43,3 @@ module RunLoop
     end
   end
 end
-

@@ -58,7 +58,7 @@ module RunLoop
         # constant CBX_DEFAULT_SEND_STRING_FREQUENCY which is 60.  _Decrease_
         # this value if you are timing out typing strings.
         :characters_per_second => 12,
-        
+
         # The number of attempts for relaunch DeviceAgent
         # when health check is failed
         :device_agent_launch_retries => 3
@@ -1493,7 +1493,7 @@ If the body empty, the DeviceAgent has probably crashed.
 
         start = Time.now
         RunLoop.log_debug("Waiting for DeviceAgent to launch...")
-        
+
         begin
           retries ||= 0
           @launcher_pid = cbx_launcher.launch(options)
